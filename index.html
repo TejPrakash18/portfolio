@@ -55,6 +55,7 @@
             <a href="#home" class="header__link">Home</a>
             <a href="#about" class="header__link">About</a>
             <a href="#projects" class="header__link">Projects</a>
+            <a href="#profile" class="header__link">Profile</a>
             <a href="#contact" class="header__link">Contact</a>
           </nav>
 
@@ -71,6 +72,8 @@
         <a href="#home" class="header__link">Home</a>
         <a href="#about" class="header__link">About</a>
         <a href="#projects" class="header__link">Projects</a>
+        <a href="#profile" class="header__link">Profile</a>
+
         <a href="#contact" class="header__link">Contact</a>
       </div>
     </header>
@@ -202,78 +205,8 @@
           passion for development.
         </p>
 
-        <!-- Project 1 -->
-        <div class="project-card">
-          <div class="project-card__content">
-            <img
-              src="./assets/png/mentee.png"
-              alt="Discord Clone"
-              class="project-card__image"
-            />
-            <div class="project-card__info">
-              <h3 class="project-card__title">Mentee</h3>
-              <p class="project-card__description">
-                A comprehensive Learning Management System that facilitates
-                mentorship processes with robust course tracking, user
-                management, and interactive learning features.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">Hibernate</span>
-                <span class="tech-tag">Spring Security</span>
-                <span class="tech-tag">JWT</span>
-                <span class="tech-tag">PostgreSQL</span>
-              </div>
-              <a
-                href="https://github.com/TejPrakash18/Mentee-LMS"
-                class="btn btn--primary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="fab fa-github"></i>
-                View Project
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-          <div class="project-card__content">
-            <div class="project-card__info">
-              <h3 class="project-card__title">Shift Management</h3>
-              <p class="project-card__description">
-                A robust Shift Management System designed to streamline employee
-                scheduling, track shift rotations, manage user roles, and ensure
-                smooth team coordination with real-time updates.
-              </p>
-
-              <div class="tech-stack">
-                <span class="tech-tag">Spring Boot</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">Spring Security</span>
-                <span class="tech-tag">Hibernate</span>
-                <span class="tech-tag">Postman</span>
-                <span class="tech-tag">JWT</span>
-              </div>
-              <a
-                href="https://github.com/TejPrakash18/Shift-Management"
-                class="btn btn--primary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i class="fab fa-github"></i>
-                View Project
-              </a>
-            </div>
-            <img
-              src="assets/png/shift_management.png"
-              alt="Learning Management System"
-              class="project-card__image"
-            />
-          </div>
-        </div>
+        <!-- 🧠 This is where cards will go -->
+        <div id="projectCardsWrapper" class="project-cards-wrapper"></div>
 
         <div class="text-center">
           <a
@@ -287,6 +220,11 @@
           </a>
         </div>
       </div>
+    </section>
+
+    <!-- Education and Certificates and Experince -->
+    <section id="profile">
+      <div id="content"></div>
     </section>
 
     <!-- Contact Section -->
