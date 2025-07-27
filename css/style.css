@@ -241,6 +241,45 @@ body {
     display: block;
   }
 }
+/* Sidebar Base Styles */
+.mobile__sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  width: 250px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 9999;
+  transition: right 0.3s ease-in-out;
+}
+
+/* Show Sidebar */
+.mobile__sidebar.show {
+  right: 0;
+}
+
+/* Close Button */
+.mobile__sidebar .close-btn {
+  background: none;
+  border: none;
+  font-size: 3rem;
+  align-self: flex-end;
+  cursor: pointer;
+  color: var(--text-dark);
+}
+
+/* Hide normal nav on mobile */
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
+}
 
 /* ===== HERO SECTION ===== */
 .hero {
@@ -416,20 +455,79 @@ body {
 
 .skill-tag {
   padding: 1rem 1.6rem;
-  background: var(--bg-white);
-  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgb(0, 0, 0);
   border-radius: var(--border-radius);
   font-size: 1.4rem;
   font-weight: 500;
   color: var(--text-dark);
-  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.skill-tag:hover {
-  background: var(--primary-color);
-  color: var(--text-white);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+/* Glow effects per skill */
+.skill-tag.java:hover {
+  box-shadow: 0 0 12px #f89820, 0 0 24px #f89820;
+}
+
+.skill-tag.spring:hover {
+  box-shadow: 0 0 12px #6db33f, 0 0 24px #6db33f;
+}
+
+.skill-tag.postgres:hover {
+  box-shadow: 0 0 12px #336791, 0 0 24px #336791;
+}
+
+.skill-tag.mongo:hover {
+  box-shadow: 0 0 12px #47a248, 0 0 24px #47a248;
+}
+
+.skill-tag.js:hover {
+  box-shadow: 0 0 12px #f7df1e, 0 0 24px #f7df1e;
+}
+
+.skill-tag.react:hover {
+  box-shadow: 0 0 12px #61dafb, 0 0 24px #61dafb;
+}
+
+.skill-tag.node:hover {
+  box-shadow: 0 0 12px #8cc84b, 0 0 24px #8cc84b;
+}
+
+.skill-tag.html:hover {
+  box-shadow: 0 0 12px #e34c26, 0 0 24px #264de4;
+}
+
+.skill-tag.tailwind:hover {
+  box-shadow: 0 0 12px #38bdf8, 0 0 24px #38bdf8;
+}
+
+.skill-tag.dsa:hover {
+  box-shadow: 0 0 12px #9146ff, 0 0 24px #9146ff;
+}
+
+.skill-tag.lld:hover {
+  box-shadow: 0 0 12px #ff7f50, 0 0 24px #ff7f50;
+}
+
+.skill-tag.junit:hover {
+  box-shadow: 0 0 12px #25a162, 0 0 24px #25a162;
+}
+
+.skill-tag.swagger:hover {
+  box-shadow: 0 0 12px #85ea2d, 0 0 24px #85ea2d;
+}
+
+.skill-tag.git:hover {
+  box-shadow: 0 0 12px #f1502f, 0 0 24px #f1502f;
+}
+
+.skill-tag.cicd:hover {
+  box-shadow: 0 0 12px #ff5722, 0 0 24px #ff5722;
 }
 
 /* ===== PROJECTS SECTION ===== */
@@ -467,7 +565,6 @@ body {
   object-fit: contain;
   transition: transform 0.5s ease;
 }
-  
 
 .project-card__info {
   padding: 4rem;
@@ -496,14 +593,13 @@ body {
   margin-bottom: 2rem;
 }
 .project-card {
-    background-color:rgba(105, 105, 105, 0.011);
-    transition: background-color 0.3s ease;
+  background-color: rgba(105, 105, 105, 0.011);
+  transition: background-color 0.3s ease;
 }
 
 .project-card:hover {
-    background-color: #f3f4f6; /* light gray on hover */
+  background-color: #f3f4f6; /* light gray on hover */
 }
-
 
 .tech-stack {
   display: flex;
