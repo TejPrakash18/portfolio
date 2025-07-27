@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Tej Upadhyay Portfolio</title>
-    <meta name="description" content="Tej Upadhyay Portfolio " />
+    <meta
+      name="description"
+      content="Tej Upadhyay Portfolio - Back-End Developer, Android Developer, Problem Solver"
+    />
     <link
       rel="shortcut icon"
       href="assets/png/favicon.ico"
@@ -24,352 +27,483 @@
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-    <!-- navbar  -->
     <header class="header">
-      <div class="header__content">
-        <div class="header__logo-container">
-          <div class="header__logo-img-cont">
+      <div class="container">
+        <div class="header__content">
+          <a href="#" class="header__logo">
             <img
               src="./assets/png/dp.png"
               alt="Tej Upadhyay"
               class="header__logo-img"
             />
-          </div>
-          <span class="header__logo-sub">Tej Upadhyay</span>
-        </div>
-        <div class="header__main">
-          <ul class="header__links">
-            <li class="header__link-wrapper">
-              <a href="./index.html" class="header__link"> Home </a>
-            </li>
-            <li class="header__link-wrapper">
-              <a href="./index.html#about" class="header__link">About </a>
-            </li>
-            <li class="header__link-wrapper">
-              <a href="./index.html#projects" class="header__link">
-                Projects
-              </a>
-            </li>
-            <li class="header__link-wrapper">
-              <a href="./index.html#contact" class="header__link"> Contact </a>
-            </li>
-          </ul>
-          <div class="header__main-ham-menu-cont">
-            <img
-              src="./assets/svg/ham-menu.svg"
-              alt="hamburger menu"
-              class="header__main-ham-menu"
-            />
-            <img
-              src="./assets/svg/ham-menu-close.svg"
-              alt="hamburger menu close"
-              class="header__main-ham-menu-close d-none"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="header__sm-menu">
-        <div class="header__sm-menu-content">
-          <ul class="header__sm-menu-links">
-            <li class="header__sm-menu-link">
-              <a href="./index.html"> Home </a>
-            </li>
-
-            <li class="header__sm-menu-link">
-              <a href="./index.html#about"> About </a>
-            </li>
-
-            <li class="header__sm-menu-link">
-              <a href="./index.html#projects"> Projects </a>
-            </li>
-
-            <li class="header__sm-menu-link">
-              <a href="./index.html#contact"> Contact </a>
-            </li>
-          </ul>
+            <span>Tej Upadhyay</span>
+          </a>
+          <nav class="header__nav">
+            <a href="#home" class="header__link">Home</a>
+            <a href="#about" class="header__link">About</a>
+            <a href="#projects" class="header__link">Projects</a>
+            <a href="#contact" class="header__link">Contact</a>
+          </nav>
+          <button class="header__mobile-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </div>
     </header>
 
-    <!-- hero section  -->
-    <section class="home-hero">
-      <div class="home-hero__content">
-        <h1 class="heading-primary">Hey, I'm <span> Tej</span></h1>
-        <h2 class="heading-primary2">
-          I'm a
-          <span class="role"></span>
-        </h2>
-
-        <div class="home-hero__info">
-          <p class="text-primary">
-            This is my portfolio website. Here, you'll get to know about me and
-            my projects.
+    <!-- Hero Section -->
+    <section id="home" class="hero section-padding">
+      <div class="container">
+        <div class="hero__content fade-in-up">
+          <h1 class="heading-primary">Hey, I'm Tej</h1>
+          <p class="hero__subtitle">
+            I'm a <span id="typed-text">Back-end Developer</span>
           </p>
-        </div>
-        <div class="home-hero__cta">
-          <a
-            href="https://www.linkedin.com/in/tejprakash18"
-            target="_blank"
-            class="btn btn--bg"
-            >Hire ME</a
-          >
-        </div>
-      </div>
-      <div class="home-hero__socials">
-        <div class="home-hero__social">
-          <a
-            href="https://www.linkedin.com/in/tejprakash18"
-            target="_blank"
-            class="home-hero__social-icon-link"
-          >
-            <img
-              src="./assets/png/linkedin-ico.png"
-              alt="icon"
-              class="home-hero__social-icon"
-            />
-          </a>
-        </div>
-        <div class="home-hero__social">
-          <a
-            href="https://github.com/TejPrakash18"
-            target="_blank"
-            class="home-hero__social-icon-link"
-          >
-            <img
-              src="./assets/png/github-ico.png"
-              alt="icon"
-              class="home-hero__social-icon"
-            />
-          </a>
-        </div>
-
-        <div class="home-hero__social">
-          <a
-            href="https://leetcode.com/TejprakashUpadhyay/"
-            target="_blank"
-            class="home-hero__social-icon-link"
-          >
-            <img
-              src="./assets/svg/leetcode.png"
-              alt="icon"
-              class="home-hero__social-icon"
-            />
-          </a>
-        </div>
-
-        <div class="home-hero__social">
-          <a
-            href="https://www.instagram.com/tej_upadhyay07"
-            target="_blank"
-            class="home-hero__social-icon-link home-hero__social-icon-link--bd-none"
-          >
-            <img
-              src="./assets/png/insta-ico.png"
-              alt="icon"
-              class="home-hero__social-icon"
-            />
-          </a>
-        </div>  
-      </div>
-      <div class="home-hero__mouse-scroll-cont">
-       <a href="./index.html#about"><div class="mouse"></div></a> 
-      </div>
-    </section>
-
-    <!-- About section  -->
-    <section id="about" class="about sec-pad">
-      <div class="main-container">
-        <h2 class="heading heading-sec heading-sec__mb-med">
-          <span class="heading-sec__main">About Me</span>
-          <span class="heading-sec__sub">
-            Back-End Developer 🧑‍💻 | Problem Solving 🧑‍🎨 <br />
-            Mobile Developer 📱 | Tech Enthusiast 💻
-          </span>
-        </h2>
-        <div class="about__content">
-          <div class="about__content-main">
-            <h3 class="about__content-title">Get to know me!</h3>
-            <div class="about__content-details">
-              <p class="about__content-details-para">
-                Hey! It's
-                <strong>Tej Upadhyay</strong>
-                and I'm a <strong> Back-End Developer </strong> and <strong> Android Developer </strong>. I've done Many projects for College and collaborated with talented people to create
-                <strong>digital products </strong>
-                for both industry and consumer use.
-              </p>
-              <p class="about__content-details-para">
-                I'm a bit of a use <strong>Leetcode</strong>. I have done my 140+ Solutions,
-                 now I'm pursing <strong> BCA </strong> and I have done my Diploma in<strong> CSE</strong>
-              </p>
-            </div>
-            <a href="./#contact" class="btn btn--med btn--theme dynamicBgClr"
-              >Contact Me</a
+          <p class="hero__description">
+            Welcome to my portfolio! I'm a passionate developer who creates
+            digital solutions that make a difference. Let's build something
+            amazing together.
+          </p>
+          <div class="hero__cta">
+            <a href="#contact" class="btn btn--primary">
+              <i class="fas fa-envelope"></i>
+              Hire Me
+            </a>
+            <a href="#projects" class="btn btn--secondary">
+              <i class="fas fa-code"></i>
+              View Work
+            </a>
+          </div>
+          <div class="hero__socials">
+            <a
+              href="https://www.linkedin.com/in/tejprakash18"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
             >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://github.com/TejPrakash18"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://leetcode.com/TejprakashUpadhyay/"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fas fa-code"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/thetejupadhyay"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
           </div>
-          <div class="about__content-skills">
-            <h3 class="about__content-title">My Skills</h3>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+      <div class="container">
+        <h2 class="heading-secondary">About Me</h2>
+        <p class="section-subtitle">
+          Back-End Developer 🧑‍💻 | Problem Solving 🧑‍🎨 | Mobile Developer 📱 |
+          Tech Enthusiast 💻
+        </p>
+        <div class="about__content">
+          <div class="about__info">
+            <h3 class="heading-tertiary">Get to know me!</h3>
+            <p class="about__text">
+              Hey! I'm <strong>Tej Upadhyay</strong>, a passionate
+              <strong>Back-End Developer</strong> and
+              <strong>Web Developer</strong>. I've worked on numerous
+              projects and collaborated with talented individuals to create
+              <strong>digital products</strong> for both industry and consumer
+              use.
+            </p>
+            <p class="about__text">
+              I'm a dedicated <strong>LeetCode</strong> enthusiast with 140+
+              solutions completed. now gradduate <strong>BCA</strong> after
+              completing my diploma in <strong>CSE</strong>. I love solving
+              complex problems and building scalable applications.
+            </p>
+            <a href="#contact" class="btn btn--primary">
+              <i class="fas fa-paper-plane"></i>
+              Contact Me
+            </a>
+          </div>
+          <div class="about__skills">
+            <h3 class="heading-tertiary">My Skills</h3>
             <div class="skills">
-              <div class="skills__skill">HTML</div>
-              <div class="skills__skill">CSS</div>
-              <div class="skills__skill">JavaScript</div>
-              <div class="skills__skill">Tailwind CSS</div>
-              <div class="skills__skill">Java</div>
-              <div class="skills__skill">DSA</div>
-              <div class="skills__skill">Low Level Design</div>
-              <div class="skills__skill">BackEnd</div>
-              <div class="skills__skill">Spring-Boot</div>
-              <div class="skills__skill">Postgres SQL</div>
-              <div class="skills__skill">MongoDB</div>
-              <div class="skills__skill">JUnit</div>
-              <div class="skills__skill">Swagger</div>
-              <div class="skills__skill">GIT</div>
-              <div class="skills__skill">Github</div>
-              <div class="skills__skill">CI/CD</div>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">Spring Boot</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">HTML/CSS</span>
+              <span class="skill-tag">Tailwind CSS</span>
+              <span class="skill-tag">DSA</span>
+              <span class="skill-tag">LLD</span>
+              <span class="skill-tag">JUnit</span>
+              <span class="skill-tag">Swagger</span>
+              <span class="skill-tag">Git/GitHub</span>
+              <span class="skill-tag">CI/CD</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Project section  -->
-    <section id="projects" class="projects sec-pad">
-      <div class="main-container">
-        <h2 class="heading heading-sec heading-sec__mb-bg">
-          <span class="heading-sec__main">Projects</span>
-          <span class="heading-sec__sub">
-            Here, you will find some of the projects that I created and
-            more details about it.
-          </span>
-        </h2>
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-padding">
+      <div class="container">
+        <h2 class="heading-secondary">Projects</h2>
+        <p class="section-subtitle">
+          Here are some of the projects I've worked on, showcasing my skills and
+          passion for development.
+        </p>
 
-        <div class="projects__content">
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img
-                src="./assets/jpeg/discord.png"
-                alt="Software Screenshot"
-                class="projects__row-img"
-                loading="lazy"
-              />
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Discord Clone</h3>
-              <p class="projects__row-content-desc">
-                Discord is a voice, video, and text chat app that's used by tens
-                of millions of people ages 13+ to talk and hang out with their
-                communities and friends.
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-card__content">
+            <img
+              src="./assets/jpeg/discord.png"
+              alt="Discord Clone"
+              class="project-card__image"
+            />
+            <div class="project-card__info">
+              <h3 class="project-card__title">Discord Clone</h3>
+              <p class="project-card__description">
+                A full-featured Discord clone with voice, video, and text chat
+                capabilities. Built with modern web technologies to provide
+                seamless real-time communication.
               </p>
+              <div class="tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">CSS Modules</span>
+              </div>
               <a
-                href="./project-1.html"
-                class="btn btn--med btn--theme dynamicBgClr"
+                href="https://github.com/TejPrakash18/discord-clone"
+                class="btn btn--primary"
                 target="_blank"
-                >Read More</a
+                rel="noopener noreferrer"
               >
+                <i class="fab fa-github"></i>
+                View Project
+              </a>
             </div>
           </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-card__content">
+            <div class="project-card__info">
+              <h3 class="project-card__title">Mentee LMS</h3>
+              <p class="project-card__description">
+                A comprehensive Learning Management System that facilitates
+                mentorship processes with robust course tracking, user
+                management, and interactive learning features.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Thymeleaf</span>
+                <span class="tech-tag">Bootstrap</span>
+              </div>
+              <a
+                href="https://github.com/TejPrakash18/Mentee-LMS"
+                class="btn btn--primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-github"></i>
+                View Project
+              </a>
+            </div>
+            <img
+              src="assets/png/discord.png"
+              alt="Learning Management System"
+              class="project-card__image"
+            />
           </div>
+        </div>
+
+        <div class="text-center">
+          <a
+            href="https://github.com/TejPrakash18/"
+            class="btn btn--secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-github"></i>
+            View All Projects
+          </a>
         </div>
       </div>
     </section>
-    <!-- footer  -->
-    <footer class="main-footer">
-      <div class="main-container">
-        <div class="main-footer__upper">
-          <div class="main-footer__row main-footer__row-1">
-            <h2 class="heading heading-sm2 main-footer__heading-sm">
-              <span>Social</span>
-            </h2>
-            <div class="main-footer__social-cont">
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.linkedin.com/in/tejprakash18/"
-              >
-                <img
-                  class="main-footer__icon"
-                  src="./assets/png/linkedin-ico.png"
-                  alt="icon"
-                />
-              </a>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://github.com/TejPrakash18/"
-              >
-                <img
-                  class="main-footer__icon"
-                  src="./assets/png/github-ico.png"
-                  alt="icon"
-                />
-              </a>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://leetcode.com/TejprakashUpadhyay/"
-              >
-                <img
-                  class="main-footer__icon"
-                  src="./assets/svg/leetcode.png"
-                  alt="icon"
-                />
-              </a>
 
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.instagram.com/tej_upadhyay07/"
-              >
-                <img
-                  class="main-footer__icon main-footer__icon--mr-none"
-                  src="./assets/png/insta-ico.png"
-                  alt="icon"
-                />
-              </a>
-            </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+      <div class="container">
+        <h2 class="heading-secondary">Contact Me</h2>
+        <p class="section-subtitle">
+          Feel free to reach out! I'm always open to discussing new
+          opportunities and interesting projects.
+        </p>
+        <form class="contact__form" name="contact" method="POST" netlify>
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              placeholder="Enter your name"
+              required
+            />
           </div>
-          <div class="main-footer__row main-footer__row-2">
-            <h4 class="heading heading-sm2 text-lt">Tej Upadhyay</h4>
-            <p class="main-footer__short-desc">
-              Java Developer &nbsp;|&nbsp; Android Developer <br />
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-textarea"
+              placeholder="Enter your message"
+              required
+            ></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn--primary">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
 
-              <a href="https://mail.google.com">
-                <i class="uil uil-envelope mail-logo"></i>
-                tej22upa.dhyay@gmail.com</a
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__info">
+            <h3>Tej Upadhyay</h3>
+            <p>
+              Java Developer | Back-End Developer<br />
+              Passionate about creating innovative solutions and solving complex
+              problems.
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a
+                href="mailto:tej22upa.dhyay@gmail.com"
+                style="color: rgba(255, 255, 255, 0.9); text-decoration: none"
               >
+                tej22upa.dhyay@gmail.com
+              </a>
             </p>
           </div>
+          <div class="footer__social">
+            <h4 class="footer__social-title">Connect With Me</h4>
+            <div class="footer__socials">
+              <a
+                href="https://www.linkedin.com/in/tejprakash18/"
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://github.com/TejPrakash18/"
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://leetcode.com/TejprakashUpadhyay/"
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fas fa-code"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/tej_upadhyay07/"
+                class="footer__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
         </div>
-
-        <!-- If you give me some credit or shoutout here by linking to my website, then it will be a big thing for me and will help me a lot :) -->
-        <div class="main-footer__lower">
-          Made by
-          <a
-            rel="noreferrer"
-            target="_blank"
-            href="https://www.linkedin.com/in/TejPrakas18"
-            >Tej Upadhyay</a
-          >
+        <div class="footer__bottom">
+          <p>
+            © <span id="currentYear"></span> Made with ❤️ by
+            <a
+              href="https://www.linkedin.com/in/tejprakash18"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Tej Upadhyay
+            </a>
+          </p>
         </div>
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="./index.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script>
-      var typeData = new Typed(".role", {
-        strings: [
-          "Back-end Developer",
-          "Android developer,",
-          "Problem Solving,",
-          "DSA,",
-        ],
-        loop: true,
-        typeSpeed: 100,
-        backSpeed: 80,
-        backDelay: 1000,
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+      // Typed.js Animation
+      document.addEventListener("DOMContentLoaded", function () {
+        try {
+          new Typed("#typed-text", {
+            strings: [
+              "Back-end Developer",
+              "Web Developer",
+              "Android Developer",
+              "Problem Solver",
+              "DSA Enthusiast",
+              "System Design",
+              "Low Level Design",
+            ],
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 2000,
+            loop: true,
+          });
+        } catch (error) {
+          console.error("Typed.js initialization failed:", error);
+          document.getElementById("typed-text").textContent =
+            "Back-end Developer";
+        }
       });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Header background on scroll
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 100) {
+          header.style.background = "rgba(255, 255, 255, 0.98)";
+          header.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
+        } else {
+          header.style.background = "rgba(255, 255, 255, 0.95)";
+          header.style.boxShadow = "none";
+        }
+      });
+
+      // Mobile menu toggle (basic implementation)
+      const mobileToggle = document.querySelector(".header__mobile-toggle");
+      const nav = document.querySelector(".header__nav");
+
+      if (mobileToggle && nav) {
+        mobileToggle.addEventListener("click", function () {
+          nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+        });
+      }
+
+      // Form submission handling
+      const contactForm = document.querySelector(".contact__form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          const submitBtn = this.querySelector('button[type="submit"]');
+          const originalText = submitBtn.innerHTML;
+
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          submitBtn.disabled = true;
+
+          // Reset button after 3 seconds (for demo purposes)
+          setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+          }, 3000);
+        });
+      }
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document
+        .querySelectorAll(".project-card, .about__content > div")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "all 0.6s ease-out";
+          observer.observe(el);
+        });
     </script>
   </body>
 </html>
