@@ -566,12 +566,13 @@ body {
 }
 
 .project-card__image {
-  padding-top: 20px;
-  width: 100%;
-  height: auto;
-  max-height: 30rem;
-  object-fit: contain;
-  transition: transform 0.5s ease;
+  border-radius: 20px; /* Adjust as needed */
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+  display: block;
+  margin-top: 50px;
+  margin-left: 80px;
 }
 
 .project-card__info {

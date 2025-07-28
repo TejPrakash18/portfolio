@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "JWT",
         "PostgreSQL",
       ],
-      image: "./assets/png/mentee.png",
+      image: "./assets/mentee.png",
       githubLink: "https://github.com/TejPrakash18/Mentee-LMS",
     },
     {
@@ -175,7 +175,23 @@ document.addEventListener("DOMContentLoaded", function () {
         "Postman",
         "JWT",
       ],
-      image: "assets/png/shift_management.png",
+      image: "assets/shift_management.png",
+      githubLink: "https://github.com/TejPrakash18/Shift-Management",
+    },
+    {
+      title: "E-Commerce",
+      description: [
+        "E-commerce app with functionalities such as product listings, categories, order processing, shopping carts, and user profiles which supports smooth scalability as business needs grow.",
+      ],
+      techStack: [
+        "Spring Boot",
+        "PostgreSQL",
+        "Spring Security",
+        "Hibernate",
+        "Postman",
+        "JWT",
+      ],
+      image: "assets/ecommerce1.jpg",
       githubLink: "https://github.com/TejPrakash18/Shift-Management",
     },
   ];
@@ -192,33 +208,38 @@ document.addEventListener("DOMContentLoaded", function () {
         .join("");
 
       return `
-        <div class="project-card">
-          <div class="project-card__content">
-            ${
-              isEven
-                ? `<img src="${item.image}" alt="${item.title}" class="project-card__image" />`
-                : ""
-            }
-            <div class="project-card__info">
-              <h3 class="project-card__title">${item.title}</h3>
-              <p class="project-card__description">${descriptionHTML}</p>
-              <div class="tech-stack">${techHTML}</div>
-              <a href="${
-                item.githubLink
-              }" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github"></i> View Project
-              </a>
-            </div>
-            ${
-              !isEven
-                ? `<img src="${item.image}" alt="${item.title}" class="project-card__image" />`
-                : ""
-            }
+      <div class="project-card">
+        <div class="project-card__content">
+          ${
+            isEven
+              ? `<div class="project-card__image-wrapper">
+                  <img src="${item.image}" alt="${item.title}" class="project-card__image" />
+                 </div>`
+              : ""
+          }
+          <div class="project-card__info">
+            <h3 class="project-card__title">${item.title}</h3>
+            <p class="project-card__description">${descriptionHTML}</p>
+            <div class="tech-stack">${techHTML}</div>
+            <a href="${
+              item.githubLink
+            }" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i> View Project
+            </a>
           </div>
+          ${
+            !isEven
+              ? `<div class="project-card__image-wrapper">
+                  <img src="${item.image}" alt="${item.title}" class="project-card__image" />
+                 </div>`
+              : ""
+          }
         </div>
-      `;
+      </div>
+    `;
     })
     .join("");
+
   if (projectContainer)
     projectContainer.insertAdjacentHTML("beforeend", projectHTML);
 
