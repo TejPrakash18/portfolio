@@ -566,7 +566,7 @@ body {
 }
 
 .project-card__image {
-  border-radius: 20px; /* Adjust as needed */
+  border-radius: 10px; /* Adjust as needed */
   width: 70%;
   height: 70%;
   object-fit: cover;
