@@ -10,8 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     new Typed("#typed-text", {
       strings: [
         "Back-end Developer",
-        "Web Developer",
-        "Android Developer",
+        "Software Engineer",
         "Problem Solver",
         "DSA Enthusiast",
         "System Design",
@@ -25,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   } catch (error) {
     console.error("Typed.js failed:", error);
     const fallback = document.getElementById("typed-text");
-    if (fallback) fallback.textContent = "Back-end Developer";
+    if (fallback) fallback.textContent = "Software Engineer";
   }
 
   // ==== SMOOTH SCROLL ====

@@ -522,6 +522,58 @@ body {
   box-shadow: 0 0 12px #ff7f50, 0 0 24px #ff7f50;
 }
 
+.skill-tag.system-design:hover {
+  box-shadow: 0 0 12px #522aaa, 0 0 24px #50fff0;
+}
+
+.skill-tag.redis:hover {
+  box-shadow: 0 0 12px #dc382d, 0 0 24px #ff6b6b; /* Redis red */
+}
+
+.skill-tag.kafka:hover {
+  box-shadow: 0 0 12px #231f20, 0 0 24px #8c8c8c; /* Kafka black/gray */
+}
+
+.skill-tag.rabbitmq:hover {
+  box-shadow: 0 0 12px #ff6600, 0 0 24px #ffaa66; /* RabbitMQ orange */
+}
+
+.skill-tag.design-patterns:hover {
+  box-shadow: 0 0 12px #2b5876, 0 0 24px #4e4376; /* Cool blue gradient */
+}
+
+.skill-tag.postman:hover {
+  box-shadow: 0 0 12px #ff6c37, 0 0 24px #ffaa80; /* Postman orange */
+}
+
+.skill-tag.docker:hover {
+  box-shadow: 0 0 12px #0db7ed, 0 0 24px #90e0ef; /* Docker blue */
+}
+
+.skill-tag.oop:hover {
+  box-shadow: 0 0 12px #6a0572, 0 0 24px #ab83a1; /* Deep purple OOP */
+}
+
+.skill-tag.dbms:hover {
+  box-shadow: 0 0 12px #006400, 0 0 24px #00ff00; /* DBMS green */
+}
+
+.skill-tag.os:hover {
+  box-shadow: 0 0 12px #1e3c72, 0 0 24px #2a5298; /* Operating Systems navy/blue */
+}
+
+.skill-tag.sdlc:hover {
+  box-shadow: 0 0 12px #0077b6, 0 0 24px #90e0ef; /* SDLC blue tones */
+}
+
+.skill-tag.agile:hover {
+  box-shadow: 0 0 12px #6a4c93, 0 0 24px #b892ff; /* Agile purple tones */
+}
+
+.skill-tag.web-socket:hover {
+  box-shadow: 0 0 12px #d4c92c, 0 0 24px #aed43d;
+}
+
 .skill-tag.junit:hover {
   box-shadow: 0 0 12px #25a162, 0 0 24px #25a162;
 }
