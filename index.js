@@ -1,154 +1,181 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // ==== CURRENT YEAR ====
+document.addEventListener("DOMContentLoaded", () => {
+  /* =========================================================
+     CURRENT YEAR
+  ========================================================= */
+
   const yearEl = document.getElementById("currentYear");
+
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // ==== TYPED.JS ====
-  try {
+
+  /* =========================================================
+     TYPED.JS
+  ========================================================= */
+
+  const typedElement = document.getElementById("typed-text");
+
+  if (typedElement && typeof Typed !== "undefined") {
     new Typed("#typed-text", {
       strings: [
-        "Back-end Developer",
+        "Backend Developer",
         "Software Engineer",
         "Problem Solver",
         "DSA Enthusiast",
-        "System Design",
-        "Low Level Design",
+        "System Designer",
+        "Support Engineer",
       ],
-      typeSpeed: 100,
-      backSpeed: 80,
-      backDelay: 2000,
+
+      typeSpeed: 70,
+      backSpeed: 45,
+      backDelay: 1800,
+      startDelay: 300,
+
       loop: true,
+
+      smartBackspace: true,
+
+      showCursor: true,
+      cursorChar: "|",
     });
-  } catch (error) {
-    console.error("Typed.js failed:", error);
-    const fallback = document.getElementById("typed-text");
-    if (fallback) fallback.textContent = "Software Engineer";
   }
 
-  // ==== SMOOTH SCROLL ====
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-      document.getElementById("mobileSidebar")?.classList.remove("show");
-      document
-        .querySelector(".header__sm-menu")
-        ?.classList.remove("header__sm-menu--active");
-      document
-        .querySelector(".header__main-ham-menu")
-        ?.classList.remove("d-none");
-      document
-        .querySelector(".header__main-ham-menu-close")
-        ?.classList.add("d-none");
-    });
-  });
 
-  // ==== HEADER SHADOW ====
+  /* =========================================================
+     HEADER
+  ========================================================= */
+
   const header = document.querySelector(".header");
-  window.addEventListener("scroll", function () {
+
+  const handleHeader = () => {
     if (!header) return;
-    if (window.scrollY > 100) {
-      header.style.background = "rgba(255, 255, 255, 0.98)";
-      header.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.1)";
-    } else {
-      header.style.background = "rgba(255, 255, 255, 0.95)";
-      header.style.boxShadow = "none";
-    }
-  });
 
-  // ==== SIDEBAR ====
-  const mobileToggle = document.querySelector(".header__mobile-toggle");
-  const mobileSidebar = document.getElementById("mobileSidebar");
-  const closeSidebar = document.getElementById("closeSidebar");
-
-  mobileToggle?.addEventListener("click", () =>
-    mobileSidebar?.classList.add("show")
-  );
-  closeSidebar?.addEventListener("click", () =>
-    mobileSidebar?.classList.remove("show")
-  );
-
-  // ==== SMALL MENU ====
-  const hamMenuBtn = document.querySelector(".header__main-ham-menu-cont");
-  const smallMenu = document.querySelector(".header__sm-menu");
-  const hamMenuIcon = document.querySelector(".header__main-ham-menu");
-  const hamCloseIcon = document.querySelector(".header__main-ham-menu-close");
-  const smallMenuLinks = document.querySelectorAll(".header__sm-menu-link");
-
-  hamMenuBtn?.addEventListener("click", () => {
-    smallMenu?.classList.toggle("header__sm-menu--active");
-    hamMenuIcon?.classList.toggle("d-none");
-    hamCloseIcon?.classList.toggle("d-none");
-  });
-
-  smallMenuLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      smallMenu?.classList.remove("header__sm-menu--active");
-      hamMenuIcon?.classList.remove("d-none");
-      hamCloseIcon?.classList.add("d-none");
-    });
-  });
-
-  // ==== LOGO REDIRECT ====
-  document
-    .querySelector(".header__logo-container")
-    ?.addEventListener("click", () => {
-      location.href = "index.html";
-    });
-
-  // ==== FORM SUBMIT ====
-  const contactForm = document.querySelector(".contact__form");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      const submitBtn = this.querySelector('button[type="submit"]');
-      if (!submitBtn) return;
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      submitBtn.disabled = true;
-      setTimeout(() => {
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-      }, 3000);
-    });
-  }
-
-  // ==== ANIMATION ====
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px",
+    header.classList.toggle(
+      "scrolled",
+      window.scrollY > 30
+    );
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-      }
-    });
-  }, observerOptions);
+  window.addEventListener(
+    "scroll",
+    handleHeader,
+    { passive: true }
+  );
+
+  handleHeader();
+
+
+  /* =========================================================
+     MOBILE SIDEBAR
+  ========================================================= */
+
+  const mobileToggle =
+    document.getElementById("mobileToggle");
+
+  const mobileSidebar =
+    document.getElementById("mobileSidebar");
+
+  const closeSidebar =
+    document.getElementById("closeSidebar");
+
+  mobileToggle?.addEventListener("click", () => {
+    mobileSidebar?.classList.add("show");
+  });
+
+  closeSidebar?.addEventListener("click", () => {
+    mobileSidebar?.classList.remove("show");
+  });
+
+
+  /* =========================================================
+     SMOOTH SCROLL
+  ========================================================= */
 
   document
-    .querySelectorAll(".project-card, .about__content > div")
-    .forEach((el) => {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(30px)";
-      el.style.transition = "all 0.6s ease-out";
-      observer.observe(el);
+    .querySelectorAll('a[href^="#"]')
+    .forEach((link) => {
+
+      link.addEventListener("click", (event) => {
+
+        const href = link.getAttribute("href");
+
+        if (!href || href === "#") return;
+
+        const target =
+          document.querySelector(href);
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+
+        mobileSidebar?.classList.remove("show");
+      });
     });
 
-  // ==== PROJECTS SECTION ====
+
+  /* =========================================================
+     ACTIVE NAVIGATION
+  ========================================================= */
+
+  const sections =
+    document.querySelectorAll("section[id]");
+
+  const navLinks =
+    document.querySelectorAll(
+      ".header__nav .header__link"
+    );
+
+  const sectionObserver =
+    new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (!entry.isIntersecting) return;
+
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+          });
+
+          const activeLink =
+            document.querySelector(
+              `.header__nav a[href="#${entry.target.id}"]`
+            );
+
+          activeLink?.classList.add("active");
+        });
+
+      },
+      {
+        threshold: 0.35,
+      }
+    );
+
+  sections.forEach((section) => {
+    sectionObserver.observe(section);
+  });
+
+
+  /* =========================================================
+     PROJECTS
+  ========================================================= */
+
   const projects = [
+
     {
       title: "Mentee",
+
       description: [
-        "A comprehensive Learning Management System that facilitates mentorship.",
-        "Includes course tracking, user management, and interactive features.",
+        "A mentorship-focused Learning Management System designed for structured learning and collaboration.",
+        "Includes course management, authentication, user roles and scalable backend architecture.",
       ],
+
       techStack: [
         "React",
         "Spring Boot",
@@ -157,167 +184,646 @@ document.addEventListener("DOMContentLoaded", function () {
         "JWT",
         "PostgreSQL",
       ],
+
       image: "./assets/mentee.png",
-      githubLink: "https://github.com/TejPrakash18/Mentee-LMS",
+
+      githubLink:
+        "https://github.com/TejPrakash18/Mentee-LMS",
     },
+
     {
       title: "Shift Management",
+
       description: [
-        "A robust Shift Management System designed to streamline employee scheduling.",
-        "Tracks shifts, manages user roles, real-time updates.",
+        "A workforce scheduling platform designed to simplify employee shift management.",
+        "Supports authentication, role-based access, scheduling and real-time system updates.",
       ],
+
       techStack: [
         "Spring Boot",
         "PostgreSQL",
         "Spring Security",
         "Hibernate",
-        "Postman",
         "JWT",
+        "Postman",
       ],
-      image: "assets/shift_management.png",
-      githubLink: "https://github.com/TejPrakash18/Shift-Management",
+
+      image:
+        "./assets/shift_management.png",
+
+      githubLink:
+        "https://github.com/TejPrakash18/Shift-Management",
     },
+
     {
       title: "E-Commerce",
+
       description: [
-        "E-commerce app with functionalities such as product listings, categories, order processing, shopping carts, and user profiles which supports smooth scalability as business needs grow.",
+        "A scalable e-commerce backend supporting products, categories, carts, orders and user profiles.",
+        "Designed with clean APIs and an architecture that can evolve with growing business requirements.",
       ],
+
       techStack: [
         "Spring Boot",
         "PostgreSQL",
         "Spring Security",
         "Hibernate",
-        "Postman",
         "JWT",
+        "REST APIs",
       ],
-      image: "assets/ecommerce1.jpg",
-      githubLink: "https://github.com/TejPrakash18/Shift-Management",
+
+      image:
+        "./assets/ecommerce1.jpg",
+
+      githubLink:
+        "https://github.com/TejPrakash18/Shift-Management",
     },
+
   ];
 
-  const projectContainer = document.getElementById("projectCardsWrapper");
-  const projectHTML = projects
-    .map((item, index) => {
-      const isEven = index % 2 === 0;
-      const descriptionHTML = item.description
-        .map((d) => `<div>${d}</div>`)
+
+  const projectContainer =
+    document.getElementById(
+      "projectCardsWrapper"
+    );
+
+
+  if (projectContainer) {
+
+    projectContainer.innerHTML =
+      projects
+        .map((project, index) => {
+
+          const imageFirst =
+            index % 2 === 0;
+
+          const descriptionHTML =
+            project.description
+              .map(
+                (description) =>
+                  `<div>${description}</div>`
+              )
+              .join("");
+
+          const techHTML =
+            project.techStack
+              .map(
+                (tech) =>
+                  `<span class="tech-tag">${tech}</span>`
+              )
+              .join("");
+
+          const imageHTML = `
+            <div class="project-card__image-wrapper">
+              <img
+                src="${project.image}"
+                alt="${project.title}"
+                class="project-card__image"
+                loading="lazy"
+              />
+            </div>
+          `;
+
+          const infoHTML = `
+            <div class="project-card__info">
+
+              <span class="section-label">
+                PROJECT ${String(index + 1).padStart(2, "0")}
+              </span>
+
+              <h3 class="project-card__title">
+                ${project.title}
+              </h3>
+
+              <div class="project-card__description">
+                ${descriptionHTML}
+              </div>
+
+              <div class="tech-stack">
+                ${techHTML}
+              </div>
+
+              <a
+                href="${project.githubLink}"
+                class="btn btn--primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-github"></i>
+                View Project
+              </a>
+
+            </div>
+          `;
+
+          return `
+            <article class="project-card">
+
+              <div class="project-card__content">
+
+                ${
+                  imageFirst
+                    ? imageHTML + infoHTML
+                    : infoHTML + imageHTML
+                }
+
+              </div>
+
+            </article>
+          `;
+        })
         .join("");
-      const techHTML = item.techStack
-        .map((tech) => `<span class="tech-tag">${tech}</span>`)
-        .join("");
-
-      return `
-      <div class="project-card">
-        <div class="project-card__content">
-          ${
-            isEven
-              ? `<div class="project-card__image-wrapper">
-                  <img src="${item.image}" alt="${item.title}" class="project-card__image" />
-                 </div>`
-              : ""
-          }
-          <div class="project-card__info">
-            <h3 class="project-card__title">${item.title}</h3>
-            <p class="project-card__description">${descriptionHTML}</p>
-            <div class="tech-stack">${techHTML}</div>
-            <a href="${
-              item.githubLink
-            }" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github"></i> View Project
-            </a>
-          </div>
-          ${
-            !isEven
-              ? `<div class="project-card__image-wrapper">
-                  <img src="${item.image}" alt="${item.title}" class="project-card__image" />
-                 </div>`
-              : ""
-          }
-        </div>
-      </div>
-    `;
-    })
-    .join("");
-
-  if (projectContainer)
-    projectContainer.insertAdjacentHTML("beforeend", projectHTML);
-
-  // ==== EDUCATION / EXPERIENCE / CERTIFICATES ====
-  const education = [
-    {
-      year: "June 2022 - July 2025",
-      title: "Bachelor Of Computer Application",
-      subtitle: "Raja Mahendra Pratap University • Aligarh, UP",
-    },
-    {
-      year: "Aug 2018 - March 2021",
-      title: "Diploma In Computer Science",
-      subtitle: "Mg Polytechnic • Hathras, UP",
-    },
-  ];
-
-  const experience = [
-    {
-      year: "2017 - Present",
-      title: "Agri-Tech Engineer & Farming Analyst",
-      subtitle: "Self-employed • Aligarh & Iglas, Uttar Pradesh",
-      description: [
-        "Balanced academic learning in software engineering with hands-on agricultural operations.",
-        "Developed farm tools using Excel, Sheets, and Spring Boot.",
-        "Handled agri-marketing, crop strategy, and digital data reporting.",
-        "Completed Diploma & BCA while managing technical and farming work.",
-      ],
-    },
-  ];
-
-  const certificates = [
-    {
-      year: "Jan 2024",
-      title: "Spring Boot & Microservices Specialization",
-      subtitle: "Coursera • University of San Diego",
-    },
-    {
-      year: "Dec 2023",
-      title: "React Frontend Developer",
-      subtitle: "Meta • Coursera",
-    },
-    {
-      year: "Jul 2022",
-      title: "Certified Android Developer",
-      subtitle: "Google Developer Community",
-    },
-  ];
-
-  function renderTimelineSection(title, data, includeDescription = false) {
-    const section = document.createElement("section");
-    section.className = "timeline-section";
-
-    const itemsHTML = data
-      .map((item) => {
-        const descriptionHTML =
-          includeDescription && item.description
-            ? item.description.map((d) => `<div>${d}</div>`).join("")
-            : "";
-        return `
-        <div class="timeline-item">
-          <span class="timeline-date">${item.year}</span>
-          <div class="timeline-card">
-            <h3>${item.title}</h3>
-            <p>${item.subtitle}</p>
-            ${descriptionHTML}
-          </div>
-        </div>`;
-      })
-      .join("");
-
-    section.innerHTML = `
-      <h2 class="section-title">${title}</h2>
-      <div class="timeline">${itemsHTML}</div>
-    `;
-    document.getElementById("content")?.appendChild(section);
   }
 
-  renderTimelineSection("Education", education);
-  renderTimelineSection("Certificates", certificates);
-  renderTimelineSection("Experience", experience, true);
+
+  /* =========================================================
+     EDUCATION
+  ========================================================= */
+
+  const education = [
+
+    {
+      year: "2025 - Present",
+
+      title:
+        "Master of Computer Applications",
+
+      subtitle:
+        "Galgotias University • Greater Noida, UP",
+    },
+
+    {
+      year: "June 2022 - July 2025",
+
+      title:
+        "Bachelor of Computer Applications",
+
+      subtitle:
+        "Raja Mahendra Pratap University • Aligarh, UP",
+    },
+
+    {
+      year: "Aug 2018 - March 2021",
+
+      title:
+        "Diploma in Computer Science",
+
+      subtitle:
+        "MG Polytechnic • Hathras, UP",
+    },
+
+  ];
+
+
+  /* =========================================================
+     EXPERIENCE
+  ========================================================= */
+
+  const experience = [
+
+    {
+      year: "Aug 2026 - Present",
+
+      title:
+        "Support Engineer",
+
+      subtitle:
+        "Inverted Energy Private Limited",
+
+      description: [
+        "Troubleshoot technical and system-related issues.",
+        "Analyze problems and identify root causes.",
+        "Collaborate with technical teams to improve reliability and performance.",
+        "Apply backend development and problem-solving skills to real-world systems.",
+      ],
+    },
+
+    {
+      year: "2017 - Present",
+
+      title:
+        "Agri-Tech Engineer & Farming Analyst",
+
+      subtitle:
+        "Self-employed • Aligarh & Iglas, Uttar Pradesh",
+
+      description: [
+        "Balanced academic learning with hands-on agricultural operations.",
+        "Built digital tools using Excel, Google Sheets and Spring Boot.",
+        "Worked on data reporting, crop strategy and agri-marketing.",
+        "Developed practical problem-solving skills through real-world operations.",
+      ],
+    },
+
+  ];
+
+
+  /* =========================================================
+     CERTIFICATES
+  ========================================================= */
+
+  const certificates = [
+
+    {
+      year: "Jan 2024",
+
+      title:
+        "Spring Boot & Microservices Specialization",
+
+      subtitle:
+        "Coursera • University of San Diego",
+    },
+
+    {
+      year: "Dec 2023",
+
+      title:
+        "Full Stack Developer — Node.js",
+
+      subtitle:
+        "Coding Shuttle",
+    },
+
+    {
+      year: "Jul 2022",
+
+      title:
+        "Certified Android Developer",
+
+      subtitle:
+        "Google Developer Community",
+    },
+
+  ];
+
+
+  /* =========================================================
+     TIMELINE RENDERER
+  ========================================================= */
+
+  const content =
+    document.getElementById("content");
+
+
+  function renderTimelineSection(
+    title,
+    data,
+    includeDescription = false
+  ) {
+
+    if (!content) return;
+
+    const section =
+      document.createElement("section");
+
+    section.className =
+      "timeline-section";
+
+
+    const itemsHTML =
+      data
+        .map((item) => {
+
+          const descriptionHTML =
+            includeDescription &&
+            item.description
+
+              ? item.description
+                  .map(
+                    (description) =>
+                      `<div>• ${description}</div>`
+                  )
+                  .join("")
+
+              : "";
+
+
+          return `
+            <div class="timeline-item">
+
+              <span class="timeline-date">
+                ${item.year}
+              </span>
+
+              <div class="timeline-card">
+
+                <h3>
+                  ${item.title}
+                </h3>
+
+                <p>
+                  ${item.subtitle}
+                </p>
+
+                ${descriptionHTML}
+
+              </div>
+
+            </div>
+          `;
+        })
+        .join("");
+
+
+    section.innerHTML = `
+      <h2 class="section-title">
+        ${title}
+      </h2>
+
+      <div class="timeline">
+        ${itemsHTML}
+      </div>
+    `;
+
+
+    content.appendChild(section);
+  }
+
+
+  /* =========================================================
+     RENDER TIMELINE
+  ========================================================= */
+
+  renderTimelineSection(
+    "Experience",
+    experience,
+    true
+  );
+
+  renderTimelineSection(
+    "Education",
+    education
+  );
+
+  renderTimelineSection(
+    "Certificates",
+    certificates
+  );
+
+
+  /* =========================================================
+     SCROLL REVEAL
+  ========================================================= */
+
+  const revealElements =
+    document.querySelectorAll(
+      ".project-card, .about__info, .about__skills, .timeline-section, .contact__intro, .contact__form"
+    );
+
+
+  const revealObserver =
+    new IntersectionObserver(
+      (entries, observer) => {
+
+        entries.forEach((entry) => {
+
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add(
+            "fade-in"
+          );
+
+          observer.unobserve(
+            entry.target
+          );
+
+        });
+
+      },
+      {
+        threshold: 0.12,
+      }
+    );
+
+
+  revealElements.forEach((element) => {
+
+    element.style.opacity = "0";
+
+    revealObserver.observe(element);
+
+  });
+
+
+  /* =========================================================
+     GOOGLE SHEETS CONTACT FORM
+  ========================================================= */
+
+  const contactForm =
+    document.getElementById("contactForm");
+
+  // Set this to the deployed Apps Script Web App URL ending in /exec.
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsgLjXhuDVS0-zplNiznVSLIps62lLsoiTpHZdHZD-8Wztq3LHM6Kk4SWA30ntRp3u/exec";
+
+
+  if (contactForm) {
+
+    contactForm.addEventListener(
+      "submit",
+      async function (event) {
+
+        event.preventDefault();
+
+
+        /* -----------------------------------------------------
+           FORM ELEMENTS
+        ----------------------------------------------------- */
+
+        const submitBtn =
+          contactForm.querySelector(
+            'button[type="submit"]'
+          );
+
+        const formStatus =
+          document.getElementById(
+            "formStatus"
+          );
+
+
+        if (!submitBtn) return;
+
+        if (
+          !GOOGLE_SCRIPT_URL.startsWith(
+            "https://script.google.com/macros/s/"
+          )
+        ) {
+          if (formStatus) {
+            formStatus.textContent =
+              "The contact form has not been connected yet. Add the deployed Apps Script URL in index.js.";
+            formStatus.className = "form-status error";
+          }
+          return;
+        }
+
+
+        /* -----------------------------------------------------
+           SAVE ORIGINAL BUTTON
+        ----------------------------------------------------- */
+
+        const originalText =
+          submitBtn.innerHTML;
+
+
+        /* -----------------------------------------------------
+           GET FORM VALUES
+        ----------------------------------------------------- */
+
+        const name =
+          document
+            .getElementById("name")
+            ?.value
+            .trim();
+
+        const email =
+          document
+            .getElementById("email")
+            ?.value
+            .trim();
+
+        const message =
+          document
+            .getElementById("message")
+            ?.value
+            .trim();
+
+
+        /* -----------------------------------------------------
+           BASIC VALIDATION
+        ----------------------------------------------------- */
+
+        if (!name || !email || !message) {
+
+          if (formStatus) {
+
+            formStatus.textContent =
+              "Please fill in all fields.";
+
+            formStatus.className =
+              "form-status error";
+          }
+
+          return;
+        }
+
+
+        /* -----------------------------------------------------
+           EMAIL VALIDATION
+        ----------------------------------------------------- */
+
+        const emailRegex =
+          /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (!emailRegex.test(email)) {
+
+          if (formStatus) {
+
+            formStatus.textContent =
+              "Please enter a valid email address.";
+
+            formStatus.className =
+              "form-status error";
+          }
+
+          return;
+        }
+
+
+        /* -----------------------------------------------------
+           LOADING STATE
+        ----------------------------------------------------- */
+
+        submitBtn.innerHTML =
+          '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        submitBtn.disabled = true;
+
+
+        if (formStatus) {
+
+          formStatus.textContent = "";
+
+          formStatus.className =
+            "form-status";
+        }
+
+
+        /* -----------------------------------------------------
+           FORM DATA
+        ----------------------------------------------------- */
+
+        const formData = {
+
+          name: name,
+
+          email: email,
+
+          message: message,
+
+        };
+
+        console.log("Contact form payload:", formData);
+
+
+        /* -----------------------------------------------------
+           SEND TO GOOGLE SHEETS
+        ----------------------------------------------------- */
+
+        try {
+
+          // no-cors avoids a browser preflight. Apps Script responses are
+          // opaque in this mode, so the browser cannot verify the sheet write.
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          if (formStatus) {
+            formStatus.textContent =
+              "Your message was submitted. Thank you!";
+            formStatus.className = "form-status success";
+          }
+
+          contactForm.reset();
+
+
+        } catch (error) {
+
+          console.error(
+            "Google Sheets submission error:",
+            error
+          );
+
+
+          if (formStatus) {
+
+            formStatus.textContent =
+              "Unable to send your message. Please try again.";
+
+            formStatus.className =
+              "form-status error";
+          }
+
+
+        } finally {
+
+          /* ---------------------------------------------------
+             RESTORE BUTTON
+          --------------------------------------------------- */
+
+          submitBtn.innerHTML =
+            originalText;
+
+          submitBtn.disabled = false;
+
+        }
+
+      }
+    );
+  }
+
 });
